@@ -8,9 +8,10 @@ class ProductCategory(models.Model):
     def __str__(self):
         return self.name
 
-class Products(models.Model):
-    category = models.ForeignKey(ProductCategory, on_delete = models.CASCADE)
-    name = models.CharField(verbose_name= 'Имя продукта', max_length=128)
+
+class Product(models.Model):
+    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    name = models.CharField(verbose_name='Имя продукта', max_length=128)
     image = models.ImageField(upload_to='products_image', blank=True)
     short_desc = models.CharField(verbose_name='Краткое описание продукта', max_length=60, blank=True)
     description = models.TextField(verbose_name='Описание продукта', blank=True)

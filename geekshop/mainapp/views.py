@@ -1,13 +1,15 @@
 from datetime import date
 
-from mainapp.models import Products
+
+
 from django.shortcuts import render
+from mainapp.models import Product
 
 def main(request):
     title = 'Главная'
-    products = Products.object.all()
+    products = Product.objects.all()
     content = {'title': title, 'products': products}
-    return render(request, 'mainapp/index.html')
+    return render(request, 'mainapp/index.html',content)
 
 def products(request):
     return render(request, 'mainapp/products.html')
