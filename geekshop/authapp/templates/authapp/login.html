@@ -11,3 +11,9 @@
     </form>
 
 {% endblock %}
+
+{% csrf_token %}
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    {{ login_form.as_p }}
